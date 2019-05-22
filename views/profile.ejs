@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Profile</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="header">
+    <div>
+      <h1>Profile</h1>
+      <h4>Welcome <%= user.username %></h4>
+    </div>
+    <form class="signup" method="POST" name="signin" action="/signout">
+      <button type="submit">signout</button>
+    </form>
+  </div>
+
+  <header>
+    <a href="/" class="active">index</a>
+    <a href="/middleware">middleware</a>
+    <a href="/embedded-javascript">embedded javaScipt</a>
+    <a href="/mongoose">mongoose</a>
+    <a href="/test">test</a>
+  </header>
+
+  <hr>
+
+  <div class="info-container">
+
+    <div class="infoblock">
+      <h2>Infomations</h2>
+      <label>username</label>
+      <h4><%= user.username %></h4>
+
+      <label>email</label>
+      <h4><%= user.mail %></h4>
+
+      <label>age</label>
+      <h4><%= user.age %></h4>
+
+      <label>idol</label>
+      <h4><%= user.idol ? user.idol : "not defined" %></h4>
+    </div>
+
+    <div>
+      <h2>Change Password</h2>
+      <form method="POST" action="/changepassword">
+        <label>currunt password</label>
+        <input type="password" name="passwordPrevious" required>
+
+        <label>new password</label>
+        <input type="password" name="password" required>
+
+        <label>confirm password</label>
+        <input type="password" name="passwordConfirm" required>
+
+        <button>update</button>
+      </form>
+    </div>
+
+  </div>
+
+  <br>
+
+  <h2>Select Idol</h2>
+
+  <table>
+    <tr>
+      <th>Professor</th>
+      <th>Subject</th>
+    </tr>
+    <% for (var i = 0; i < professors.length; i++) { %>
+    <tr class="professor">
+      <td><%= professors[i].name %></td>
+      <td><%= professors[i].subject %></td>
+      <td>
+        <form method="POST" action="/updateidol/<%= professors[i]._id %>">
+          <button type="submit">change idol</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </table>
+
+</body>
+
+</html>

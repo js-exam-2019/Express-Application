@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <h4>Welcome to <%= title %></h4>
+
+  <header>
+    <a href="/" class="active">index</a>
+    <a href="/middleware">middleware</a>
+    <a href="/embedded-javascript">embedded javaScipt</a>
+    <a href="/mongoose">mongoose</a>
+    <a href="/test">test</a>
+  </header>
+
+  <hr>
+
+  <div class="access-container">
+    <div>
+      <h2>Signin</h2>
+
+      <form class="signup" method="POST" name="signin" action="/signin">
+        <label>username</label>
+        <input type="text" name="username" required>
+
+        <label>password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">signin</button>
+      </form>
+    </div>
+
+    <div>
+      <h2>Signup</h2>
+      <form class="signup" method="POST" action="/signup">
+        <label>username</label>
+        <input type="text" name="username" required>
+
+        <label>email</label>
+        <input type="email" name="email" required>
+
+        <label>age</label>
+        <input type="number" name="age" min="1" required>
+
+        <label>password</label>
+        <input type="password" name="password" required>
+
+        <label>confirm password</label>
+        <input type="password" name="passwordConfirm" required>
+
+        <button type="submit">signup</button>
+      </form>
+    </div>
+
+    <%if (true) { %>
+    <div class="cookie-background"></div>
+    <div class="cookie-container">
+      <div class="cookie-info">
+        <h2>This site uses Cookies</h2>
+        <p>We are using cookies to keep your session running</p> 
+        <form>
+          <button type="submit">agree</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+
+
+
+  </div>
+
+
+</body>
+
+</html>

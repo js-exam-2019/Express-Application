@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <h4>What is <%= title %></h4>
+
+  <header>
+    <a href="/">index</a>
+    <a href="/middleware">middleware</a>
+    <a href="/embedded-javascript" class="active">embedded javaScipt</a>
+    <a href="/mongoose">mongoose</a>
+    <a href="/test">test</a>
+  </header>
+
+  <hr>
+
+  <p>Whenever you visit a website, your browser makes a request to the server that contains the contents of the website.
+    Once the request is done processing, your browser gets back the fully rendered HTML and displays it on the screen.
+  </p>
+
+  <p>If you then decide to visit a different page on the website, your browser will once again make
+    another request for the new information.</p>
+
+  <p>This will occur each and every time you visit a page that your browser does not have a cached version of.</p>
+
+  <p>
+    An Express and JSP application contains a similar architecture other than both being server-side rendered.
+    Both contains a enhanced html collection where data can be placed and rendered to the client as html.
+  </p>
+
+  <b>Java and JSP</b>
+  <p>Java uses servlets that redirects to the relevant JSP views (.jsp) These JSP is enhanced html with Java
+    implementation.</p>
+
+  <b>Express and EJS</b>
+  <p>Express uses routes that redirects to the relevant EJS views (.ejs) These EJS is enhanced html with JavaSctipt
+    implementation</p>
+
+  <h3>EJS tags</h3>
+
+  <ul>
+    <li><code>&lt;%</code> ‘Scriptlet’ tag, for control-flow, no output</li>
+    <li><code>&lt;%_</code> ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it</li>
+    <li><code>&lt;%=</code> Outputs the value into the template (HTML escaped)</li>
+    <li><code>&lt;%-</code> Outputs the unescaped value into the template</li>
+    <li><code>&lt;%#</code> Comment tag, no execution, no output</li>
+    <li><code>&lt;%%</code> Outputs a literal ‘&lt;%’</li>
+    <li><code>%&gt;</code> Plain ending tag</li>
+    <li><code>-%&gt;</code> Trim-mode (‘newline slurp’) tag, trims following newline</li>
+    <li><code>_%&gt;</code> ‘Whitespace Slurping’ ending tag, removes all whitespace after it</li>
+  </ul>
+
+  <h3>JSP tags</h3>
+
+  <ul>
+    <li><code>&lt;%!</code> Variable declaration or method definition <code>%&gt;</code></li>
+    <li><code>&lt;%=</code> Java valid expression <code>%&gt;</code></li>
+    <li><code>&lt;%</code> Pure Java code <code>%&gt;</code></li>
+  </ul>
+
+  <h3>Server Side Rendering example with EJS.</h3>
+
+  <b>route.js</b>
+  <pre class="code">
+  var express = require('express');
+  var router = express.Router();
+
+  router.get('/', function(req, res, next) {
+    res.render('index', { title: 'Express', example: 'World' });
+  });
+
+  module.exports = router;
+  </pre>
+
+  <b>view.ejs</b>
+  <pre class="code">
+  &lt;html&gt;
+    ...
+  &lt;body&gt;
+    &lt;h1&gt;&lt;%= title %>&lt;/h1&gt;
+    &lt;h4&gt;Hello &lt;%= example %&gt;!&lt;/h4&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </pre>
+
+  <hr>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+body {
+  color: gray;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  color: dodgerblue;
+}
+
+.code {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
+  color: dodgerblue;
+  display: flex;
+}
+
+a {
+  color: #00B7FF;
+}
+
+form, .infoblock {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  
+}
+
+.access-container, .info-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+form > *, .infoblock > * {
+  padding: 5px;
+  margin: 5px;
+}
+
+.infoblock > label {
+  padding-bottom: 0px;
+  color: dodgerblue;
+  font-weight: bold;
+}
+
+h4 {
+  color: gray;
+}
+
+button {
+  background-color: transparent;
+  border-color: dodgerblue;
+  font-size: 14px;
+  color: dodgerblue;
+  font-weight: bold;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+code {
+  background-color: #f9f9f9;
+  color: dodgerblue;
+  font-weight: bold;
+  border-radius: 5px;
+  padding-right: 5px; 
+  padding-left: 5px; 
+}
+
+button:hover {
+  background-color: dodgerblue;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 25px;
+  width: 60vw;
+}
+
+header a {
+  font-size: 12px;
+  color: lightgray;
+  text-decoration-color: transparent;
+}
+
+header a:hover {
+  color: dodgerblue;
+}
+
+header .active {
+  color: dodgerblue; 
+  text-decoration-color: dodgerblue;
+}
+
+table, tbody {
+  width: 60vw;
+}
+
+th {
+  text-align: left;
+  color: dodgerblue;
+}
+
+.header {
+  display: flex;
+}
+
+.header form {
+  display: flex;
+  justify-content: center;
+}
+
+.cookie-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: .8;
+}
+
+.cookie-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookie-info {
+  width: 60vw;
+  height: 50vh;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}

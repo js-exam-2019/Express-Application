@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <h4>What is <%= title %></h4>
+
+  <header>
+    <a href="/">index</a>
+    <a href="/middleware" class="active">middleware</a>
+    <a href="/embedded-javascript">embedded javaScipt</a>
+    <a href="/mongoose">mongoose</a>
+    <a href="/test">test</a>
+  </header>
+
+  <hr>
+
+  <a href="https://expressjs.com/en/guide/using-middleware.html#middleware.application">reference</a>
+
+  <p>Express is a routing and middleware web framework that has minimal functionality of its own: An Express application
+    is essentially a series of middleware function calls.</p>
+
+  <p>Middleware functions can perform the following tasks:</p>
+
+  <ul>
+    <li>Execute any code.</li>
+    <li>Make changes to the request and the response objects.</li>
+    <li>End the request-response cycle.</li>
+    <li>Call the next middleware function in the stack.</li>
+  </ul>
+
+  <p>A middleware was used to direct you to this site</p>
+
+  <pre class="code">
+  router.get("/middleware", function(req, res, next) {
+    res.render("middleware", { title: "Middleware" });
+  });
+  </pre>
+
+  <p>There er five main layers to use middleware</p>
+
+  <ul>
+    <li>Application-level middleware</li>
+    <li>Router-level middleware</li>
+    <li>Error-handling middleware</li>
+    <li>Built-in middleware</li>
+    <li>Third-party middleware</li>
+  </ul>
+
+  <hr>
+</body>
+
+</html>

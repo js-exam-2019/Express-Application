@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <h4>What is <%= title %></h4>
+
+  <header>
+    <a href="/">index</a>
+    <a href="/middleware">middleware</a>
+    <a href="/embedded-javascript">embedded javaScipt</a>
+    <a href="/mongoose">mongoose</a>
+    <a href="/test" class="active">test</a>
+  </header>
+
+  <hr>
+
+  <h2>Instalation</h2>
+  <pre class="code">
+  $ npm install mocha -g
+  $ npm install chai --save-dev
+  </pre>
+
+  <h2>Test Setup</h2>
+  <pre class="code">
+  const expect = require("chai").expect;
+  describe("Main Test Title", () => {
+    before(() => {
+      // runs before the tests begins
+    });
+  
+    beforeEach(() => {
+      // runs before the individual tests
+    });
+  
+    after(() => {
+      // runs after the tests has ended
+    });
+  
+    afterEach(() => {
+      // runs after the individual tests
+    });
+  });
+  </pre>
+
+  <h2>Simple Tests</h2>
+  <pre class="code">
+  const expect = require("chai").expect;
+
+  describe("Main Test Title", () => {
+    it("should say condition is true", () => {
+      const condition = true;
+      expect(condition).to.be.true;
+    });
+
+    it("should say condition is not true", () => {
+      const condition = false;
+      expect(condition).not.to.be.true;
+    });
+  });
+  </pre>
+
+
+  <hr>
+</body>
+
+</html>
