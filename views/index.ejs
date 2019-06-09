@@ -42,7 +42,7 @@
         <input type="text" name="username" required>
 
         <label>email</label>
-        <input type="email" name="email" required>
+        <input type="email" name="mail" required>
 
         <label>age</label>
         <input type="number" name="age" min="1" required>
@@ -57,20 +57,18 @@
       </form>
     </div>
 
-    <%if (true) { %>
-    <div class="cookie-background"></div>
-    <div class="cookie-container">
-      <div class="cookie-info">
-        <h2>This site uses Cookies</h2>
-        <p>We are using cookies to keep your session running</p> 
-        <form>
-          <button type="submit">agree</button>
-        </form>
+    <%if (!agreedCookies) { %>
+      <div class="cookie-background"></div>
+      <div class="cookie-container">
+        <div class="cookie-info">
+          <h2>This site uses Cookies</h2>
+          <p>We are using cookies to keep your session running</p> 
+          <form method="POST" action="/agree-cookies">
+            <button type="submit">agree</button>
+          </form>
+        </div>
       </div>
-    </div>
-    <% } %>
-
-
+      <% } %>
 
   </div>
 

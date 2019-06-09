@@ -15,6 +15,9 @@
     <form class="signup" method="POST" name="signin" action="/signout">
       <button type="submit">signout</button>
     </form>
+    <form class="signup" method="POST" name="signin" action="/delete">
+      <button type="submit">delete profile</button>
+    </form>
   </div>
 
   <header>
@@ -41,7 +44,7 @@
       <h4><%= user.age %></h4>
 
       <label>idol</label>
-      <h4><%= user.idol ? user.idol : "not defined" %></h4>
+      <h4><%= user.idol ? `${user.idol.name}, ${user.idol.subject}` : "not defined" %></h4>
     </div>
 
     <div>
@@ -76,7 +79,8 @@
       <td><%= professors[i].name %></td>
       <td><%= professors[i].subject %></td>
       <td>
-        <form method="POST" action="/updateidol/<%= professors[i]._id %>">
+        <form method="POST" action="/updateidol/" >
+          <input name="id" type="hidden" value=<%= professors[i]._id %> />
           <button type="submit">change idol</button>
         </form>
       </td>

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+mongoose.set('useFindAndModify', false);
 const connect = (connection) => mongoose.connect(connection, { useNewUrlParser: true });
 const disconnect = () => mongoose.disconnect();
 

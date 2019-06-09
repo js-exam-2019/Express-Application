@@ -1,14 +1,12 @@
 const expect = require("chai").expect;
 
-let connect = require("../mongoConnector").connect;
-let disconnect = require("../mongoConnector").disconnect;
-let connection = require("../mongoConnections").test;
-
-let Professor = require("../models/Professor");
-let professorFacade = require("../facade/professorFacade");
+const connect = require('../connection/connector').connect;
+const disconnect = require('../connection/connector').disconnect;
+const connection = require('../connection/connections').test;
 
 let User = require("../models/User");
-let userFacade = require("../facade/userFacade");
+let Professor = require("../models/Professor");
+let professorFacade = require("../facade/professorFacade");
 
 describe("Testing Professor Facade", () => {
 	before(async () => {
@@ -44,5 +42,11 @@ describe("Testing Professor Facade", () => {
 	it("should return a empty list of professors", async () => {
 		const professors = await professorFacade.getAll();
 		expect(professors).not.to.be.empty;
+	});
+
+	it("should return a professor", async () => {
+		const professors = await professorFacade.getAll();
+		const professor = await professorFacade.getById(professors[0]._id);
+		expect(professor.name).to.be.equal(professors[0].name);
 	});
 });

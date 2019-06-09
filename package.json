@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "dev": "DEBUG=myapp:* npm start",
-    "test": "mocha",
-    "init": "node initialize.js"
+    "dev": "nodemon ./bin/www",
+    "debug": "DEBUG=express:* nodemon ./bin/www",
+    "test": "mocha --timeout 10000",
+    "init": "node utils/initialize.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

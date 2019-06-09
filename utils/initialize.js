@@ -1,9 +1,9 @@
-let connect = require("./mongoConnector").connect;
-let disconnect = require("./mongoConnector").disconnect;
-let connection = require("./mongoConnections").dev;
+const connect = require('../connection/connector').connect;
+const disconnect = require('../connection/connector').disconnect;
+const connection = require('../connection/connections').dev;
 
-let Professor = require("./models/Professor");
-let User = require("./models/User");
+let Professor = require("../models/Professor");
+let User = require("../models/User");
 
 !(initialize = async () => {
     await connect(connection);

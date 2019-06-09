@@ -1,21 +1,33 @@
 const expect = require("chai").expect;
 
-let connect = require("../mongoConnector").connect;
-let disconnect = require("../mongoConnector").disconnect;
-let connection = require("../mongoConnections").test;
+const connect = require('../connection/connector').connect;
+const disconnect = require('../connection/connector').disconnect;
+const connection = require('../connection/connections').test;
 
 let User = require("../models/User");
 let userFacade = require("../facade/userFacade");
 
+let Professor = require("../models/Professor");
+let professorFacade = require("../facade/professorFacade");
+
 describe("Testing User Facade", () => {
 	before(async () => {
 		await connect(connection);
+		await Professor.deleteMany({});
+		await Professor.insertMany([{ name: "Plato", subject: "Philosophy" }, { name: "Aristotle", subject: "Philosophy" }]);
+
 		await User.deleteMany({});
 		await User.insertMany([
 			{
 				username: "marc",
 				password: "pass",
 				mail: "marc@mail.com",
+				age: 24
+			},
+			{
+				username: "vito",
+				password: "pass",
+				mail: "vito@mail.com",
 				age: 24
 			}
 		]);
@@ -73,4 +85,23 @@ describe("Testing User Facade", () => {
 		const user = await userFacade.changePassword(username, password);
 		expect(user.status).to.be.equal(403);
 	});
+
+	it("should return an user with updated idol", async () => {
+		const professor = await professorFacade.getAll();
+		let user = await userFacade.getByUsername("marc");
+		user = await userFacade.updateIdol(user.username, professor[1]._id);
+		expect(user.idol.name).to.be.equal(professor[1].name);
+	});
+
+	it("should delte an user", async () => {
+		const listBefore = await userFacade.getAll();
+		const user = await userFacade.getByUsername("marc");
+		await userFacade.deleteProfile(user._id);
+		const listAfter = await userFacade.getAll();
+
+		console.log(listBefore, listAfter)
+
+		expect(listBefore.length).to.be.equal(listAfter.length + 1);
+	});
 });
+
